@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package net.ownhero.dev.regex;
 
@@ -10,35 +10,35 @@ import net.ownhero.dev.kanuni.conditions.Condition;
 
 /**
  * The Class Group.
- * 
+ *
  * @author Sascha Just <sascha.just@st.cs.uni-saarland.de>
  */
 public class Group {
-	
+
 	/** The index. */
 	private final int    index;
-	
+
 	/** The match. */
 	private final String match;
-	
+
 	/** The name. */
 	private final String name;
-	
+
 	/** The pattern. */
 	private final String pattern;
-	
+
 	/** The start. */
 	private final int    start;
-	
+
 	/** The end. */
 	private final int    end;
-	
+
 	/** The text. */
 	private final String text;
-	
+
 	/**
 	 * Instantiates a new group.
-	 * 
+	 *
 	 * @param pattern
 	 *            the pattern
 	 * @param text
@@ -56,9 +56,6 @@ public class Group {
 	 */
 	public Group(@NotNull final String pattern, @NotNull final String text, @NotNull final String match,
 	        @NotNegative final int index, final String name, @NotNegative final int start, @NotNegative final int end) {
-		// PRECONDITIONS
-		
-		try {
 			this.pattern = pattern;
 			this.text = text;
 			this.match = match;
@@ -66,32 +63,24 @@ public class Group {
 			this.name = name;
 			this.end = end;
 			this.start = start;
-		} finally {
-			// POSTCONDITIONS
-			Condition.notNull(this.pattern, "Field '%s' in '%s'.", "pattern", getHandle()); //$NON-NLS-1$ //$NON-NLS-2$
-			Condition.notNull(this.text, "Field '%s' in '%s'.", "text", getHandle()); //$NON-NLS-1$ //$NON-NLS-2$
-			CompareCondition.notNegative(this.index, "Field '%s' in '%s'.", "index", getHandle()); //$NON-NLS-1$ //$NON-NLS-2$
-			CompareCondition.notNegative(this.start, "Field '%s' in '%s'.", "start", getHandle()); //$NON-NLS-1$ //$NON-NLS-2$
-			CompareCondition.notNegative(this.end, "Field '%s' in '%s'.", "end", getHandle()); //$NON-NLS-1$ //$NON-NLS-2$
-		}
 	}
-	
+
 	/**
 	 * Determines the end of the match (string index). Guaranteed to be non-negative.
-	 * 
+	 *
 	 * @return the character index that determines the end of the match.
 	 */
 	public int end() {
 		// PRECONDITIONS
 		CompareCondition.notNegative(this.end, "Field '%s' in '%s'.", "end", getHandle()); //$NON-NLS-1$ //$NON-NLS-2$
-		
+
 		try {
 			return this.end;
 		} finally {
 			// POSTCONDITIONS
 		}
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -127,61 +116,61 @@ public class Group {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Gets the simple class name.
-	 * 
+	 *
 	 * @return the simple class name
 	 */
 	public final String getHandle() {
 		return getClass().getSimpleName();
 	}
-	
+
 	/**
 	 * Gets the index.
-	 * 
+	 *
 	 * @return the index
 	 */
 	public int getIndex() {
 		return this.index;
 	}
-	
+
 	/**
 	 * Gets the match.
-	 * 
+	 *
 	 * @return the match
 	 */
 	public String getMatch() {
 		return this.match;
 	}
-	
+
 	/**
 	 * Gets the name.
-	 * 
+	 *
 	 * @return the name
 	 */
 	public String getName() {
 		return this.name;
 	}
-	
+
 	/**
 	 * Gets the pattern.
-	 * 
+	 *
 	 * @return the pattern
 	 */
 	public String getPattern() {
 		return this.pattern;
 	}
-	
+
 	/**
 	 * Gets the text.
-	 * 
+	 *
 	 * @return the text
 	 */
 	public String getText() {
 		return this.text;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -199,23 +188,23 @@ public class Group {
 		                                                : this.text.hashCode());
 		return result;
 	}
-	
+
 	/**
 	 * Start.
-	 * 
+	 *
 	 * @return the int
 	 */
 	public int start() {
 		// PRECONDITIONS
 		CompareCondition.notNegative(this.start, "Field '%s' in '%s'.", "start", getHandle()); //$NON-NLS-1$ //$NON-NLS-2$
-		
+
 		try {
 			return this.start;
 		} finally {
 			// POSTCONDITIONS
 		}
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -236,5 +225,5 @@ public class Group {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 }
